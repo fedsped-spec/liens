@@ -32,6 +32,18 @@ a.l span{flex:1;text-align:center;margin-right:36px;letter-spacing:.04em}
 a.l:hover,a.l:focus-visible{border-color:var(--or);transform:translateY(-3px);box-shadow:0 8px 28px rgba(201,162,75,.15);color:var(--or2);outline:none}
 a.l:active{transform:scale(.98)}
 a.off{opacity:.4;pointer-events:none}
+button.l{width:100%;display:flex;align-items:center;gap:14px;padding:16px 20px;margin-bottom:14px;background:var(--card);backdrop-filter:blur(6px);border:1px solid #2c2c3a;border-radius:14px;color:var(--tx);font:inherit;font-size:17px;cursor:pointer;transition:.25s;text-align:left;animation:in .8s ease both;animation-delay:.42s}
+button.l svg{width:22px;height:22px;flex:none;fill:currentColor;color:var(--or)}
+button.l span{flex:1;text-align:center;margin-right:36px;letter-spacing:.04em}
+button.l:hover,button.l:focus-visible{border-color:var(--or);transform:translateY(-3px);box-shadow:0 8px 28px rgba(201,162,75,.15);color:var(--or2);outline:none}
+.panel{margin:-4px 0 14px;padding:20px 16px;background:var(--card);border:1px solid var(--or);border-radius:14px;animation:in .4s ease both}
+.panel[hidden]{display:none}
+.pt{color:var(--or2);letter-spacing:.12em;margin-bottom:14px}
+.panel img{display:block;margin:0 auto 14px;border-radius:10px;background:#ece7da}
+.panel code{display:block;word-break:break-all;font:12px/1.5 ui-monospace,Menlo,Consolas,monospace;color:var(--mut);margin-bottom:14px;user-select:all}
+#cp{background:transparent;border:1px solid var(--or);color:var(--or2);font:inherit;padding:10px 20px;border-radius:10px;cursor:pointer;transition:.2s}
+#cp:hover{background:rgba(201,162,75,.12)}
+.pn{margin-top:14px;font-size:12px;color:#7d796d;font-style:italic}
 footer{margin-top:38px;font-size:12px;color:#6d6a60;letter-spacing:.2em}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
@@ -55,11 +67,25 @@ footer{margin-top:38px;font-size:12px;color:#6d6a60;letter-spacing:.2em}
 <a class="l" href="https://discord.gg/Hb3w4DNpv" target="_blank" rel="noopener" data-goatcounter-click="discord" data-goatcounter-title="Discord">
 <svg viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm4 5a1.300 1.300 0 1 0 0 2.600A1.300 1.300 0 0 0 8 9zm8 0a1.300 1.300 0 1 0 0 2.600A1.300 1.300 0 0 0 16 9z"/></svg><span>Rejoindre le Discord</span></a>
 
-<a class="l off" href="#" aria-disabled="true" data-goatcounter-click="soutien" data-goatcounter-title="Me soutenir">
-<svg viewBox="0 0 24 24"><path d="M12 21s-7.500-4.600-9.500-9.500C1.200 8 3.400 4.500 7 4.500c2 0 3.600 1 5 3 1.400-2 3-3 5-3 3.600 0 5.800 3.500 4.500 7C19.500 16.400 12 21 12 21z"/></svg><span>Me soutenir (bientôt)</span></a>
+<button class="l" id="sb" type="button" data-goatcounter-click="soutien" data-goatcounter-title="Me soutenir" aria-expanded="false" aria-controls="sp">
+<svg viewBox="0 0 24 24"><path d="M12 21s-7.500-4.600-9.500-9.500C1.200 8 3.400 4.500 7 4.500c2 0 3.600 1 5 3 1.400-2 3-3 5-3 3.600 0 5.800 3.500 4.500 7C19.500 16.400 12 21 12 21z"/></svg><span>Me soutenir</span></button>
+<div id="sp" class="panel" hidden>
+<p class="pt">Don en Monero (XMR)</p>
+<img src="monero-qr.svg" alt="QR code de l'adresse Monero" width="168" height="168">
+<code id="ad">45XS8E6n16dKamsz9zC9iT13nhcxzzsPRAbmNaMECauEHGFGcNt3k515P6q33PoG9mY5N5eqd22iJYSLHNtckxvjFRnh3si</code>
+<button type="button" id="cp" data-goatcounter-click="copier-xmr" data-goatcounter-title="Copier adresse XMR">Copier l'adresse</button>
+<p class="pn">Monero masque l'expéditeur, le destinataire et le montant. Merci pour ton soutien.</p>
+</div>
 
 <footer>obmutescere</footer>
 </main>
 <script data-goatcounter="https://obmutescere.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>
+(function(){var b=document.getElementById('sb'),p=document.getElementById('sp'),c=document.getElementById('cp'),a=document.getElementById('ad');
+b.addEventListener('click',function(){var o=p.hidden;p.hidden=!o;b.setAttribute('aria-expanded',o)});
+c.addEventListener('click',function(){var t=a.textContent.trim();function ok(){c.textContent='Adresse copiée ✓';setTimeout(function(){c.textContent="Copier l'adresse"},2000)}
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok,function(){sel()})}else{sel()}
+function sel(){var r=document.createRange();r.selectNodeContents(a);var g=getSelection();g.removeAllRanges();g.addRange(r);try{document.execCommand('copy');ok()}catch(e){}}});})();
+</script>
 </body>
 </html>
