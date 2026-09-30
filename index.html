@@ -11,20 +11,29 @@
 <meta property="og:description" content="Archives, recherche et savoir interdit.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <style>
-:root{--or:#c9a24b;--bg:#0b0b0f;--card:#14141b;--tx:#ece7da;--mut:#a8a293}
+:root{--or:#c9a24b;--or2:#f0d58a;--bg:#07070b;--card:rgba(20,20,29,.72);--tx:#ece7da;--mut:#a8a293}
 *{box-sizing:border-box;margin:0}
-body{min-height:100vh;background:radial-gradient(circle at 50% 0,#1d1a2b 0,var(--bg) 60%) fixed;color:var(--tx);font-family:Georgia,'Times New Roman',serif;display:flex;justify-content:center;padding:48px 20px}
-main{width:100%;max-width:440px;text-align:center}
-.logo{width:104px;height:104px;margin:0 auto 18px;border-radius:50%;border:2px solid var(--or);display:flex;align-items:center;justify-content:center;font-size:32px;color:var(--or);letter-spacing:.06em;background:#0b0b0f;box-shadow:0 0 30px rgba(201,162,75,.18)}
-h1{font-size:22px;letter-spacing:.25em;font-weight:400}
-p.sub{margin:10px 0 6px;color:var(--mut);font-style:italic}
-.sep{width:48px;height:1px;background:var(--or);margin:18px auto 28px;opacity:.6}
-a.l{display:flex;align-items:center;gap:14px;padding:15px 20px;margin-bottom:14px;background:var(--card);border:1px solid #2a2a36;border-radius:12px;color:var(--tx);text-decoration:none;font-size:17px;transition:.2s;text-align:left}
-a.l svg{width:22px;height:22px;flex:none;fill:currentColor}
-a.l span{flex:1;text-align:center;margin-right:36px}
-a.l:hover,a.l:focus-visible{border-color:var(--or);transform:translateY(-2px);color:var(--or);outline:none}
+html{background:var(--bg)}
+body{min-height:100vh;color:var(--tx);font-family:Georgia,'Times New Roman',serif;display:flex;justify-content:center;padding:56px 20px 40px;position:relative;overflow-x:hidden;
+background:radial-gradient(ellipse at 50% -10%,#2a2345 0,transparent 55%),radial-gradient(ellipse at 50% 110%,#1a1424 0,transparent 50%),var(--bg) fixed}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.55;
+background-image:radial-gradient(1px 1px at 12% 18%,#fff8 50%,transparent 51%),radial-gradient(1px 1px at 78% 12%,#fff6 50%,transparent 51%),radial-gradient(1.5px 1.5px at 40% 34%,#c9a24b99 50%,transparent 51%),radial-gradient(1px 1px at 88% 52%,#fff5 50%,transparent 51%),radial-gradient(1px 1px at 22% 70%,#fff6 50%,transparent 51%),radial-gradient(1.5px 1.5px at 62% 82%,#c9a24b88 50%,transparent 51%),radial-gradient(1px 1px at 6% 90%,#fff5 50%,transparent 51%),radial-gradient(1px 1px at 94% 88%,#fff6 50%,transparent 51%)}
+main{width:100%;max-width:440px;text-align:center;position:relative;animation:in .8s ease both}
+@keyframes in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.logo{width:112px;height:112px;margin:0 auto 20px;border-radius:50%;border:2px solid var(--or);display:flex;align-items:center;justify-content:center;font-size:33px;color:var(--or2);letter-spacing:.06em;background:radial-gradient(circle,#15121f,#07070b);box-shadow:0 0 0 6px rgba(201,162,75,.08),0 0 40px rgba(201,162,75,.25);animation:glow 4s ease-in-out infinite}
+@keyframes glow{50%{box-shadow:0 0 0 10px rgba(201,162,75,.05),0 0 60px rgba(201,162,75,.4)}}
+h1{font-size:23px;letter-spacing:.3em;font-weight:400;background:linear-gradient(90deg,var(--or),var(--or2),var(--or));-webkit-background-clip:text;background-clip:text;color:transparent}
+p.sub{margin:12px 0 6px;color:var(--mut);font-style:italic;font-size:15px}
+.sep{width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--or),transparent);margin:20px auto 30px}
+a.l{display:flex;align-items:center;gap:14px;padding:16px 20px;margin-bottom:14px;background:var(--card);backdrop-filter:blur(6px);border:1px solid #2c2c3a;border-radius:14px;color:var(--tx);text-decoration:none;font-size:17px;transition:.25s;text-align:left;animation:in .8s ease both}
+a.l:nth-of-type(1){animation-delay:.1s}a.l:nth-of-type(2){animation-delay:.18s}a.l:nth-of-type(3){animation-delay:.26s}a.l:nth-of-type(4){animation-delay:.34s}a.l:nth-of-type(5){animation-delay:.42s}
+a.l svg{width:22px;height:22px;flex:none;fill:currentColor;color:var(--or)}
+a.l span{flex:1;text-align:center;margin-right:36px;letter-spacing:.04em}
+a.l:hover,a.l:focus-visible{border-color:var(--or);transform:translateY(-3px);box-shadow:0 8px 28px rgba(201,162,75,.15);color:var(--or2);outline:none}
+a.l:active{transform:scale(.98)}
 a.off{opacity:.4;pointer-events:none}
-footer{margin-top:34px;font-size:12px;color:#6d6a60}
+footer{margin-top:38px;font-size:12px;color:#6d6a60;letter-spacing:.2em}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
